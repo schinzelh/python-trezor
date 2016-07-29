@@ -89,7 +89,7 @@ class expect(object):
         return wrapped_f
 
 def normalize_nfc(txt):
-    log("SENDING " + pprint(txt))
+    log("normalize_nfc")
     log(txt)
     log(sys.version_info[0])
     log("normalize_nfc")
