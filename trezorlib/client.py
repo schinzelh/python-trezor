@@ -89,23 +89,23 @@ class expect(object):
         return wrapped_f
 
 def normalize_nfc(txt):
-    print "normalize_nfc"
-    print txt
-    print sys.version_info[0]
-    print "normalize_nfc"
+    log("SENDING " + pprint(txt))
+    log(txt)
+    log(sys.version_info[0])
+    log("normalize_nfc")
     if sys.version_info[0] < 3:
         if isinstance(txt, unicode):
-            print "A"
+            log("A")
             return unicodedata.normalize('NFC', txt)
         if isinstance(txt, str):
-            print "B"
+            log("B")
             return unicodedata.normalize('NFC', txt.decode('utf-8'))
     else:
         if isinstance(txt, bytes):
-            print "C"           
+            log("C")           
             return unicodedata.normalize('NFC', txt.decode('utf-8'))
         if isinstance(txt, str):
-            print "D"           
+            log("D")           
             return unicodedata.normalize('NFC', txt)
 
     raise Exception('unicode/str or bytes/str expected')
